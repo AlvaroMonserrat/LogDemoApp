@@ -15,14 +15,21 @@ import com.rrat.logdemoapp.databinding.FragmentLogsBinding
 import com.rrat.logdemoapp.databinding.ItemLogBinding
 import com.rrat.logdemoapp.navigator.AppNavigator
 import com.rrat.logdemoapp.util.DateFormatter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class LogsFragment : Fragment() {
 
     private lateinit var binding: FragmentLogsBinding
     private lateinit var logger: Logger
-    private lateinit var dateFormatter: DateFormatter
-    private lateinit var navigator: AppNavigator
+
+    @Inject
+    lateinit var dateFormatter: DateFormatter
+
+    @Inject
+    lateinit var navigator: AppNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,12 +60,12 @@ class LogsFragment : Fragment() {
         super.onAttach(context)
         i(TAG, "ON ATTACH")
         val application = (context.applicationContext as LogApplication)
-        navigator = application
-            .serviceLocator
-            .provideNavigator(requireActivity())
+//        navigator = application
+//            .serviceLocator
+//            .provideNavigator(requireActivity())
 
         logger = application.serviceLocator.provideLogger()
-        dateFormatter = application.serviceLocator.provideDateFormatter()
+        //dateFormatter = application.serviceLocator.provideDateFormatter()
     }
 
     override fun onResume() {

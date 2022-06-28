@@ -4,8 +4,10 @@ import androidx.fragment.app.FragmentActivity
 import com.rrat.logdemoapp.R
 import com.rrat.logdemoapp.ui.LogsFragment
 import com.rrat.logdemoapp.ui.MenuFragment
+import javax.inject.Inject
 
-class AppNavigatorImpl(private val activity: FragmentActivity) : AppNavigator {
+
+class AppNavigatorImpl @Inject constructor(private val activity: FragmentActivity) : AppNavigator {
 
     override fun navigateTo(screens: SCREENS) {
         val fragment = when(screens)

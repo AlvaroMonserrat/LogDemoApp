@@ -3,7 +3,10 @@ package com.rrat.logdemoapp.application
 import android.app.Application
 import android.util.Log
 import com.rrat.logdemoapp.ServiceLocator
+import dagger.hilt.android.HiltAndroidApp
 
+
+@HiltAndroidApp
 class LogApplication : Application(){
 
     lateinit var serviceLocator: ServiceLocator

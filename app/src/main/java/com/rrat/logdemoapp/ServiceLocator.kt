@@ -19,9 +19,4 @@ class ServiceLocator(applicationContext: Context) {
 
     fun provideLogger() = Logger(logDatabase.logDao())
 
-    fun provideDateFormatter() = DateFormatter()
-
-    fun provideNavigator(activity: FragmentActivity) : AppNavigator{
-        return AppNavigatorImpl(activity)
-    }
 }

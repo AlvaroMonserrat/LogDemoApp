@@ -8,11 +8,15 @@ import com.rrat.logdemoapp.databinding.ActivityMainBinding
 import com.rrat.logdemoapp.navigator.AppNavigator
 import com.rrat.logdemoapp.navigator.AppNavigatorImpl
 import com.rrat.logdemoapp.navigator.SCREENS
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navigator: AppNavigator
+    @Inject lateinit var navigator: AppNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Log.i(TAG, "ON CREATE")
-        navigator = (applicationContext as LogApplication).serviceLocator.provideNavigator(this)
+        //navigator = (applicationContext as LogApplication).serviceLocator.provideNavigator(this)
         if(savedInstanceState == null)
         {
             navigator.navigateTo(SCREENS.MENU)

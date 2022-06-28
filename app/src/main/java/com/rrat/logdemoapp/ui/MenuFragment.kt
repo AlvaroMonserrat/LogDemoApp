@@ -16,14 +16,19 @@ import com.rrat.logdemoapp.databinding.FragmentMenuBinding
 import com.rrat.logdemoapp.navigator.AppNavigator
 import com.rrat.logdemoapp.navigator.AppNavigatorImpl
 import com.rrat.logdemoapp.navigator.SCREENS
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class MenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMenuBinding
 
     private lateinit var logger: Logger
-    private lateinit var navigator: AppNavigator
+
+    @Inject
+    lateinit var navigator: AppNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +60,9 @@ class MenuFragment : Fragment() {
         Log.i(TAG, "ON ATTACH")
 
         val application = (context.applicationContext as LogApplication)
-        navigator = application
-            .serviceLocator
-            .provideNavigator(requireActivity())
+//        navigator = application
+//            .serviceLocator
+//            .provideNavigator(requireActivity())
 
         logger = application.serviceLocator.provideLogger()
     }

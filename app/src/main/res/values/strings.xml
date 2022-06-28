@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LogDemoApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="log_register">Log Register</string>
+    <string name="add_log">Add Log</string>
+    <string name="submit">Submit</string>
+    <string name="next">next</string>
+</resources>
